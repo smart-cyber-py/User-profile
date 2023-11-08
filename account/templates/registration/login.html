@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .login-section .fogot,.register{
+        border:tomato solid 1px;
+        margin-top:5%;
+        width:100%;
+    }
+</style>
+    <section class="login-section">
+        <div class="container">
+            <div class="row m-3">
+                <div class="col-sm-12 col-md-6 login-top">
+                    <h3>Login your Accoount</h3>
+                </div>
+                <div class="col-sm-12 col-md-6 login-form">
+                    <form action="" method="post">
+                        {{ form.as_p }}
+                        {% csrf_token %}
+                        <button style="color:#fff;" class="btn btn-default">Login</button>
+                    </form>
+                </div>
+                    <div class="col-sm-12 col-md-6 text-center">
+                        <a href="{% url 'password_reset' %}">
+                            <button class="btn btn-default fogot">Fogot password</button>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <a href="{% url 'register' %}">
+                            <button class="btn btn-default register">Create Accoount</button>
+                        </a>
+                    </div>
+                    
+            </div>
+        </div>
+    </section>
+    <script>
+        var input = document.querySelectorAll('input');
+        input[0].setAttribute('class','form-control')
+        input[1].setAttribute('class','form-control')
+    </script>
+{% endblock %}

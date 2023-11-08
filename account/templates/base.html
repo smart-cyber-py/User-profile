@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        
+        <title>{% block title %} {% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'account/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+            body{
+                background:;
+            }
+            .user_container{
+                height:200px;
+                width: 70%;
+                position: relative;
+                left: 50%;
+                transform: translateX(-45%);
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                border:tomato solid 2px;
+                background: tomato;
+            }
+            .user_container button{
+                background-color: transparent;
+                border:#fff solid 1px;
+                
+                color: #fff;
+            }
+            .login-top{
+                height: 100px;
+                border-top-left-radius: 15px;
+                color: #fff;
+                justify-content: center;
+                display: grid;
+                place-items: center;
+                background: tomato;
+                border-top-right-radius: 15px;
+            }
+            .login-form{
+                background: tomato;
+                color: #fff;
+                height: 300px;
+            }
+            .login-form button{
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+                font-size: 1.2em;
+                border:#fff solid 1px;
+            }
+            .login-form input{
+                background-color: transparent;
+            }
+            @media screen and (min-width:768px){
+                .login-top{
+                    height: 300px;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 0px;
+                    border-bottom-left-radius: 15px;
+                    display: grid;
+                    place-items: center;
+                }
+                
+                .user_container{
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: row;
+                    flex-flow:row flex-wrap;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav style="background:tomato;" class="navbar navbar-dark">
+            <div class="navbar-header p-2">
+                <a href="{% url 'landing' %}" class="navbar-brand">User Profile</a>
+            </div>
+             <a style="color:#fff;text-decoration:none;" class="m-2" href="{% url 'dashboard' %}">Dashboard</a>
+        </nav>
+        {% block content %}
+        
+        {% endblock %}
+        
+    </body>
+</html>

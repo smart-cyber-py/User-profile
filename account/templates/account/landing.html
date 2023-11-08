@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Landing page {% endblock %}
+
+{% block content %}
+    <section class="landing-section">
+        <div class="container landing-container">
+            <div class="row">
+                <div class="d-flex justify-content-center col-12">
+                    <p>Welcome to Django user profile</p>
+                
+                </div>
+                <div style="" class="row user_container">
+                    <div class="col-12 d-flex justify-content-center">
+                        <a href="{% url 'login' %}">
+                            <button class="btn btn-primary">Login</button>
+                        </a>
+                       
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <a href="{% url 'register' %}">
+                            <button class="btn btn-primary">Register</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

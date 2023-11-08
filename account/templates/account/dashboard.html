@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .dashbord-section button{
+        border: tomato solid 1px;
+        width: 100%;
+    }
+    .dashbord-section [class*=col-sm]{
+        margin-top: 10%;
+    }
+</style>
+<section class="dashbord-section">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-12">
+                <span><h5>Welcome to your dashbord</h5></span>
+            </div>
+            <div class="text-center col-12">
+                <img style="height:100px;width:100px;border-radius:100px;" src="{% static 'account/img/slider.png' %}" alt="">
+                <div class="w-100"></div>
+                <h5>{{ request.user.username }}</h5>
+                <div class="w-100"></div>
+                <pre>{{ request.user.profile.bio }}</pre>
+                <div class="w-100"></div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="row">
+                    <div class="col">
+                       <mark>Email</mark>
+                    </div>
+                    <div class="col">
+                        <p>{{ request.user.email }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mark>Date of birth</mark>
+                    </div>
+                    <div class="col">
+                        <p>{{ request.user.profile.date_of_birth }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <a href="{% url 'logout' %}">
+                    <button class="btn btn-default">logout</button>
+                 </a>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <a href="{% url 'password_change' %}">
+                    <button class="btn btn-default">Change Password</button>
+                 </a>
+            </div>
+            <div class="col-md-6 col-sm-12 offset-md-3">
+                <a href="{% url 'edit_profile' request.user.username %}">
+                    <button class="btn btn-default">Edit profile</button>
+                 </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

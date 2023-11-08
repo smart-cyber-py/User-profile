@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .logout-section button{
+        border:tomato solid 1px;
+    }
+</style>
+    <section class="logout-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3>You logout succesfully</h3>
+                </div>
+                <div class="col-12 text-center">
+                    <pre>you can login again</pre>
+                    <a href="{% url 'login' %}">
+                        <button class="btn btn-default">login again</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

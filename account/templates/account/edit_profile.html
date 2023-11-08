@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="edit-profile-section">
+        <div class="container">
+            <div class="row m-3">
+                <div class="col-12">
+                    <form action="" method="post">
+                        {{ profile_form.as_p }}
+                        {{ user_form.as_p }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-default">submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        var inputs = document.querySelectorAll("input");
+        var textarea = document.querySelector("textarea");
+        textarea.setAttribute("class","form-control")
+        var array = Array.from(inputs);
+        array.forEach((input)=>{
+            input.setAttribute("class","form-control")
+        })
+    </script>
+{% endblock %}
